@@ -7,49 +7,82 @@
 %standalone
 Letter = [a-zA-Z]
 Digit = [0-9]
+UnderScore = \_
 
-Identifier = [:jletter:] [:jletterdigit:]*
+Identifier = {Letter}({Letter}|{Digit}|{UnderScore})*
 
-/* INTEGER CONSTANT */
 DecInteger= 0 | [1-9][0-9]*
 HexInteger = 0[xX][0-9A-Fa-f]+
 
+DoubleConst= [0-9]+\.[0-9]*([eE][\+\-]?[0-9]+)
+
+WhiteSpace = [ \t\n]+
+
+Character = [^\"\\\n\r]
+
+LineTerminator = \r|\n|\r\n
+InputCharacter = [^\r\n]
+MultiLineComment = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+SingleLineComment = "//" {InputCharacter}* {LineTerminator}?
+Comment = {MultiLineComment} | {SingleLineComment}
 
 %%
 
 /* KEYWORDS*/
-boolean {System.out.println("boolean");}
-break {System.out.println("break");}
-class {System.out.println("class");}
-double {System.out.println("double");}
-else {System.out.println("else");}
-extends {System.out.println("extends");}
-false {System.out.println("false");}
-for {System.out.println("for");}
-if {System.out.println("if");}
-implements {System.out.println("implements");}
-int {System.out.println("int");}
-interface {System.out.println("interface");}
-newarray {System.out.println("newarray");}
-println {System.out.println("println");}
-readln {System.out.println("readln");}
-return {System.out.println("return");}
-string {System.out.println("string");}
-true {System.out.println("true");}
-void {System.out.println("void");}
-while {System.out.println("while");}
-
-/* IDENTIFIER */
-{Identifier} {System.out.println("id");}
-
-/* WHITESPACE*/
+boolean     {System.out.print("boolean ");}
+break       {System.out.print("break ");}
+class       {System.out.print("class ");}
+double      {System.out.print("double ");}
+else        {System.out.print("else ");}
+extends     {System.out.print("extends ");}
+for         {System.out.print("for ");}
+if          {System.out.print("if ");}
+implements  {System.out.print("implements ");}
+int         {System.out.print("int ");}
+interface   {System.out.print("interface ");}
+newarray    {System.out.print("newarray ");}
+println     {System.out.print("println ");}
+readln      {System.out.print("readln ");}
+return      {System.out.print("return ");}
+string      {System.out.print("string ");}
+void        {System.out.print("void ");}
+while       {System.out.print("while ");}
 
 /* INTEGER CONSTANT*/
-{DecInteger}|{HexInteger} {System.out.println("intconstant");}
-/* DOUBLE CONSTANT */
+{DecInteger}|{HexInteger} {System.out.print("intconstant ");}
 
+/* BOOLEAN CONSTANT */
+true        {System.out.print("booleanconstant");}
+false       {System.out.print("booleanconstant");}
 
+/* OPERATORS and PUNCTUATIONS*/
+"+"       {System.out.print("plus ");}
+"-"       {System.out.print("minus ");}
+"*"       {System.out.print("mult ");}
+"/"       {System.out.print("div ");}
+"%"       {System.out.print("mod ");}
+"<"       {System.out.print("less ");}
+"<="      {System.out.print("lesseq ");}
+">"       {System.out.print("greater ");}
+">="      {System.out.print("greatereq ");}
+"=="      {System.out.print("eqeq ");}
+"!="      {System.out.print("noteq ");}
+"&&"      {System.out.print("andand ");}
+"||"      {System.out.print("oror ");}
+"!"       {System.out.print("not ");}
+"="       {System.out.print("eq ");}
+";"       {System.out.print("semicolon ");}
+","       {System.out.print("comma ");}
+"."       {System.out.print("period ");}
+"("       {System.out.print("leftparen ");}
+")"       {System.out.print("rightparen ");}
+"["       {System.out.print("leftbrac ");}
+"]"       {System.out.print("rightbrac ");}
+"{"       {System.out.print("leftbrace ");}
+"}"       {System.out.print("rightbrace ");}
 
+/* COMMENTS */
+{Comment}       {System.out.print("\n");}
 
 \n { /* do nothing */}
 . { /* do nothing */}

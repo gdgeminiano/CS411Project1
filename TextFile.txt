@@ -1,25 +1,9 @@
-implements
-int
-interface
-newarray
-println
-readln
-return
-string
-true
-void
-while
-boolean
-break
-class
-double
-else
-extends
-false
-for
-if
-0x1234566
-0Xsdfsdfs
-for
-0xAFAFAFAF
-123123123123
++ - * / % < <= > >= == != && || ! = ; , . ( ) [ ] { }
+boolean break class double else extends false for
+if implements int interface newarray println readln
+return string true void while
+int fact (int x) {
+// recursive factorial function
+ if (x>0x12313123) return x * fact(x-1);
+ else return 1;
+}
