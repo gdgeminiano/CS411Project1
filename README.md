@@ -12,7 +12,7 @@ Working:
 - [X] Identifier
 - [ ] White space
 - [X] Integer Constant
-- [x] Double Constant
+- [ ] Double Constant
 - [ ] String Constant
 - [X] Boolean
 - [X] Operations
