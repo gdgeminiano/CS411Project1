@@ -5,6 +5,7 @@
 */
 %%
 %standalone
+
 Letter = [a-zA-Z]
 Digit = [0-9]
 UnderScore = "_"
@@ -20,6 +21,8 @@ WhiteSpace = [ \t\n]+
 
 Character = [^\"\\\n\r]
 
+String = \"(([^\"]|\\\")*[^\\])?\"
+
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
 MultiLineComment = "/*" [^*] ~"*/" | "/*" "*"+ "/"
@@ -29,7 +32,10 @@ Comment = {MultiLineComment} | {SingleLineComment}
 
 %%
 
-/* KEYWORDS*/
+/* STRING */
+{String} {System.out.print("string ");}
+
+/* KEYWORDS */
 boolean     {System.out.print("boolean ");}
 break       {System.out.print("break ");}
 class       {System.out.print("class ");}
@@ -49,6 +55,10 @@ string      {System.out.print("string ");}
 void        {System.out.print("void ");}
 while       {System.out.print("while ");}
 
+/* BOOLEAN CONSTANT */
+true        {System.out.print("booleanconstant");}
+false       {System.out.print("booleanconstant");}
+
 /* IDENTIFIER */
 {Identifier} {System.out.print("id ");}
 
@@ -57,10 +67,6 @@ while       {System.out.print("while ");}
 
 /* DOUBLE CONSTANT */
 {DoubleConst} {System.out.print("doubleconstant ");}
-
-/* BOOLEAN CONSTANT */
-true        {System.out.print("booleanconstant");}
-false       {System.out.print("booleanconstant");}
 
 /* OPERATORS and PUNCTUATIONS*/
 "+"       {System.out.print("plus ");}

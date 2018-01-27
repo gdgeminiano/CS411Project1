@@ -12,8 +12,8 @@ Working:
 - [X] Identifier
 - [ ] White space
 - [X] Integer Constant
-- [ ] Double Constant
-- [ ] String Constant
+- [X] Double Constant
+- [X] String Constant
 - [X] Boolean
 - [X] Operations
 - [ ] Comments
