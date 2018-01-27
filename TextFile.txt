@@ -1,6 +1,6 @@
 int fact (int x) {
 // recursive factorial function
- if (x>1) return x * fact(x-0.12 );
+ if (x> 12.) return x * fact(x-0.12 );
  else return 12.2E+2 ;
 }
 
@@ -10,7 +10,7 @@ CS 411 project #1
 A lexical analyzer */
  int x;
  int total;
- println ("factorial of 10 is ", fact (10), "from the recursive function");
+ println ("factorial of 10 is ", fact (0X12aE), "from the recursive function");
  total = 1; x = 1;
  for ( ; x<=10; ) { total = total * x; x = x + 1; }
  println ("iterative result of 10! is ", total);

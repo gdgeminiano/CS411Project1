@@ -1,1 +1,1 @@
-println ("factorial of 10 is ", fact (10), "from the recursive function");
+println ("factorial of 10 is ", fact (0X12aE), "from the recursive function");
