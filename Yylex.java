@@ -59,13 +59,13 @@ class Yylex {
     "\1\0\1\1\1\2\2\3\1\4\1\5\1\6\1\7"+
     "\1\10\1\11\14\2\1\12\1\13\1\14\1\15\1\16"+
     "\1\17\2\1\1\20\1\21\1\22\1\23\1\24\1\25"+
-    "\1\26\1\27\3\0\1\6\1\0\13\2\1\30\4\2"+
-    "\1\31\1\32\1\33\1\34\1\35\1\36\1\0\1\3"+
-    "\1\6\2\0\12\2\1\37\1\40\4\2\1\41\2\0"+
-    "\2\2\1\42\13\2\1\43\1\2\1\44\4\2\1\45"+
-    "\5\2\1\46\3\2\1\47\1\50\1\51\1\52\3\2"+
-    "\1\53\1\54\3\2\1\55\1\56\2\2\1\57\1\2"+
-    "\1\60";
+    "\1\26\1\27\1\30\2\0\1\6\1\0\13\2\1\31"+
+    "\4\2\1\32\1\33\1\34\1\35\1\36\1\37\1\0"+
+    "\1\3\1\6\2\0\12\2\1\40\1\41\4\2\1\30"+
+    "\2\0\2\2\1\42\13\2\1\43\1\2\1\44\4\2"+
+    "\1\45\5\2\1\46\3\2\1\47\1\50\1\51\1\52"+
+    "\3\2\1\53\1\54\3\2\1\55\1\56\2\2\1\57"+
+    "\1\2\1\60";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[140];
@@ -274,8 +274,8 @@ class Yylex {
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
     "\1\0\1\11\3\1\4\11\1\1\1\11\14\1\2\11"+
-    "\6\1\10\11\3\0\1\1\1\0\20\1\6\11\1\0"+
-    "\2\1\2\0\21\1\2\0\62\1";
+    "\6\1\10\11\1\1\2\0\1\1\1\0\20\1\6\11"+
+    "\1\0\2\1\2\0\21\1\2\0\62\1";
 
   private static int [] zzUnpackAttribute() {
     int [] result = new int[140];
@@ -761,43 +761,43 @@ class Yylex {
             }
           case 71: break;
           case 24: 
-            { System.out.print("if ");
+            { System.out.print("doubleconstant ");
             }
           case 72: break;
           case 25: 
-            { System.out.print("lesseq ");
+            { System.out.print("if ");
             }
           case 73: break;
           case 26: 
-            { System.out.print("eqeq ");
+            { System.out.print("lesseq ");
             }
           case 74: break;
           case 27: 
-            { System.out.print("greatereq ");
+            { System.out.print("eqeq ");
             }
           case 75: break;
           case 28: 
-            { System.out.print("noteq ");
+            { System.out.print("greatereq ");
             }
           case 76: break;
           case 29: 
-            { System.out.print("andand ");
+            { System.out.print("noteq ");
             }
           case 77: break;
           case 30: 
-            { System.out.print("oror ");
+            { System.out.print("andand ");
             }
           case 78: break;
           case 31: 
-            { System.out.print("for ");
+            { System.out.print("oror ");
             }
           case 79: break;
           case 32: 
-            { System.out.print("int ");
+            { System.out.print("for ");
             }
           case 80: break;
           case 33: 
-            { System.out.print("doubleconstant ");
+            { System.out.print("int ");
             }
           case 81: break;
           case 34: 

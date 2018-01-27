@@ -1,5 +1,5 @@
 # CS411Project1
-Implementing a lexical analyzer 
+Implementing a lexical analyzer
 
 Instructions:
 - [ ] Go to command prompt
@@ -9,7 +9,7 @@ Instructions:
 
 Working:
 - [X] Keywords
-- [ ] Identifier
+- [X] Identifier
 - [ ] White space
 - [X] Integer Constant
 - [x] Double Constant

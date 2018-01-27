@@ -14,7 +14,7 @@ Identifier = {Letter}({Letter}|{Digit}|{UnderScore})*
 DecInteger= 0 | [1-9][0-9]*
 HexInteger = 0[xX][0-9A-Fa-f]+
 
-DoubleConst= [0-9]+\.[0-9]*([eE][\+\-]?[0-9]+)
+DoubleConst= [0-9]+\.[0-9]*([eE][\+\-]?[0-9]+)?
 
 WhiteSpace = [ \t\n]+
 
@@ -23,10 +23,9 @@ Character = [^\"\\\n\r]
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
 MultiLineComment = "/*" [^*] ~"*/" | "/*" "*"+ "/"
-
-
 SingleLineComment = "//" {InputCharacter}* {LineTerminator}?
 Comment = {MultiLineComment} | {SingleLineComment}
+
 
 %%
 
