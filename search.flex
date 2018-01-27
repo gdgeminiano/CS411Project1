@@ -25,10 +25,6 @@ String = \"(([^\"]|\\\")*[^\\])?\"
 
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
-MultiLineComment = "/*" [^*] ~"*/" | "/*" "*"+ "/"
-SingleLineComment = "//" {InputCharacter}* {LineTerminator}?
-Comment = {MultiLineComment} | {SingleLineComment}
-
 
 %%
 
