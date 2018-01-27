@@ -13,7 +13,11 @@ Working:
 - [ ] White space
 - [X] Integer Constant
 - [X] Double Constant
+<<<<<<< HEAD
 - [X] String Constant
+=======
+- [ ] String Constant
+>>>>>>> 105728cc1a8a60e63796589a21b4374809f829c7
 - [X] Boolean
 - [X] Operations
 - [ ] Comments
