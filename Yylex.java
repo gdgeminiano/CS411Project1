@@ -36,14 +36,14 @@ class Yylex {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\0\1\7\1\62\1\62\1\10\22\0\1\0\1\47\1\0"+
-    "\2\0\1\43\1\50\1\0\1\54\1\55\1\12\1\42\1\53\1\6"+
-    "\1\5\1\11\1\2\11\1\1\0\1\52\1\44\1\45\1\46\2\0"+
-    "\4\4\1\4\1\4\21\0\1\3\2\0\1\56\1\0\1\57\1\0"+
-    "\1\0\1\0\1\17\1\13\1\23\1\25\1\16\1\31\1\37\1\41"+
-    "\1\32\1\0\1\22\1\15\1\33\1\20\1\14\1\34\1\0\1\21"+
-    "\1\24\1\30\1\26\1\40\1\35\1\27\1\36\1\0\1\60\1\51"+
-    "\1\61\7\0\1\62\u1fa2\0\1\62\1\62\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\11\0\1\0\1\10\1\63\1\63\1\11\22\0\1\0\1\50\1\0"+
+    "\2\0\1\44\1\51\1\0\1\55\1\56\1\13\1\43\1\54\1\7"+
+    "\1\5\1\12\1\2\11\1\1\0\1\53\1\45\1\46\1\47\2\0"+
+    "\4\4\1\6\1\4\21\0\1\3\2\0\1\57\1\0\1\60\1\0"+
+    "\1\0\1\0\1\20\1\14\1\24\1\26\1\17\1\32\1\40\1\42"+
+    "\1\33\1\0\1\23\1\16\1\34\1\21\1\15\1\35\1\0\1\22"+
+    "\1\25\1\31\1\27\1\41\1\36\1\30\1\37\1\0\1\61\1\52"+
+    "\1\62\7\0\1\63\u1fa2\0\1\63\1\63\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -57,17 +57,17 @@ class Yylex {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\2\2\1\3\1\4\1\5\1\6\1\7"+
-    "\15\1\1\10\1\11\1\12\1\13\1\14\1\15\2\1"+
-    "\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25"+
-    "\1\0\1\26\16\0\1\27\4\0\1\30\1\31\1\32"+
-    "\1\33\1\34\1\35\1\2\2\26\15\0\1\36\1\0"+
-    "\1\37\7\0\1\40\7\0\1\41\4\0\1\42\1\0"+
-    "\1\43\4\0\1\44\5\0\1\45\3\0\1\46\1\47"+
-    "\1\50\1\51\3\0\1\52\1\53\3\0\1\54\1\55"+
-    "\2\0\1\56\1\0\1\57";
+    "\1\10\15\1\1\11\1\12\1\13\1\14\1\15\1\16"+
+    "\2\1\1\17\1\20\1\21\1\22\1\23\1\24\1\25"+
+    "\1\26\3\0\1\5\16\0\1\27\4\0\1\30\1\31"+
+    "\1\32\1\33\1\34\1\35\1\0\1\2\1\5\15\0"+
+    "\1\36\1\0\1\37\4\0\1\40\4\0\1\41\7\0"+
+    "\1\42\4\0\1\43\1\0\1\44\4\0\1\45\5\0"+
+    "\1\46\3\0\1\47\1\50\1\51\1\52\3\0\1\53"+
+    "\1\54\3\0\1\55\1\56\2\0\1\57\1\0\1\60";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[140];
+    int [] result = new int[145];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -92,27 +92,28 @@ class Yylex {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\63\0\146\0\231\0\63\0\63\0\63\0\314"+
-    "\0\63\0\377\0\u0132\0\u0165\0\u0198\0\u01cb\0\u01fe\0\u0231"+
-    "\0\u0264\0\u0297\0\u02ca\0\u02fd\0\u0330\0\u0363\0\63\0\63"+
-    "\0\u0396\0\u03c9\0\u03fc\0\u042f\0\u0462\0\u0495\0\63\0\63"+
-    "\0\63\0\63\0\63\0\63\0\63\0\63\0\u04c8\0\u04fb"+
-    "\0\u052e\0\u0561\0\u0594\0\u05c7\0\u05fa\0\u062d\0\u0660\0\u0693"+
-    "\0\u06c6\0\u06f9\0\u072c\0\u075f\0\u0792\0\u07c5\0\63\0\u07f8"+
-    "\0\u082b\0\u085e\0\u0891\0\63\0\63\0\63\0\63\0\63"+
-    "\0\63\0\u04c8\0\63\0\u08c4\0\u08f7\0\u092a\0\u095d\0\u0990"+
-    "\0\u09c3\0\u09f6\0\u0a29\0\u0a5c\0\u0a8f\0\u0ac2\0\u0af5\0\u0b28"+
-    "\0\u0b5b\0\63\0\u0b8e\0\u0bc1\0\u0bf4\0\u0c27\0\u0c5a\0\u0c8d"+
-    "\0\u0cc0\0\u0cf3\0\u0d26\0\63\0\u0d59\0\u0d8c\0\u0dbf\0\u0df2"+
-    "\0\u0e25\0\u0e58\0\u0e8b\0\63\0\u0ebe\0\u0ef1\0\u0f24\0\u0f57"+
-    "\0\63\0\u0f8a\0\63\0\u0fbd\0\u0ff0\0\u1023\0\u1056\0\63"+
-    "\0\u1089\0\u10bc\0\u10ef\0\u1122\0\u1155\0\63\0\u1188\0\u11bb"+
-    "\0\u11ee\0\63\0\63\0\63\0\63\0\u1221\0\u1254\0\u1287"+
-    "\0\63\0\63\0\u12ba\0\u12ed\0\u1320\0\63\0\63\0\u1353"+
-    "\0\u1386\0\63\0\u13b9\0\63";
+    "\0\0\0\64\0\150\0\234\0\64\0\64\0\64\0\64"+
+    "\0\320\0\64\0\u0104\0\u0138\0\u016c\0\u01a0\0\u01d4\0\u0208"+
+    "\0\u023c\0\u0270\0\u02a4\0\u02d8\0\u030c\0\u0340\0\u0374\0\64"+
+    "\0\64\0\u03a8\0\u03dc\0\u0410\0\u0444\0\u0478\0\u04ac\0\64"+
+    "\0\64\0\64\0\64\0\64\0\64\0\64\0\64\0\u04e0"+
+    "\0\u0514\0\u0548\0\u057c\0\u05b0\0\u05e4\0\u0618\0\u064c\0\u0680"+
+    "\0\u06b4\0\u06e8\0\u071c\0\u0750\0\u0784\0\u07b8\0\u07ec\0\u0820"+
+    "\0\u0854\0\64\0\u0888\0\u08bc\0\u08f0\0\u0924\0\64\0\64"+
+    "\0\64\0\64\0\64\0\64\0\u0958\0\u0548\0\u098c\0\u09c0"+
+    "\0\u09f4\0\u0a28\0\u0a5c\0\u0a90\0\u0ac4\0\u0af8\0\u0b2c\0\u0b60"+
+    "\0\u0b94\0\u0bc8\0\u0bfc\0\u0c30\0\64\0\u0c64\0\u0c98\0\u0ccc"+
+    "\0\u0d00\0\u0d34\0\u0d68\0\u0d9c\0\u0d9c\0\u0dd0\0\u0e04\0\u0e38"+
+    "\0\64\0\u0e6c\0\u0ea0\0\u0ed4\0\u0f08\0\u0f3c\0\u0f70\0\u0fa4"+
+    "\0\64\0\u0fd8\0\u100c\0\u1040\0\u1074\0\64\0\u10a8\0\64"+
+    "\0\u10dc\0\u1110\0\u1144\0\u1178\0\64\0\u11ac\0\u11e0\0\u1214"+
+    "\0\u1248\0\u127c\0\64\0\u12b0\0\u12e4\0\u1318\0\64\0\64"+
+    "\0\64\0\64\0\u134c\0\u1380\0\u13b4\0\64\0\64\0\u13e8"+
+    "\0\u141c\0\u1450\0\64\0\64\0\u1484\0\u14b8\0\64\0\u14ec"+
+    "\0\64";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[140];
+    int [] result = new int[145];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -135,45 +136,48 @@ class Yylex {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\2\2\1\5\1\6\1\2\1\7"+
-    "\1\10\1\11\1\12\2\2\1\13\1\2\1\14\1\15"+
-    "\1\2\1\16\1\17\1\20\2\2\1\21\1\22\1\23"+
-    "\1\2\1\24\1\25\2\2\1\26\1\2\1\27\1\30"+
+    "\1\2\1\3\1\4\2\2\1\5\1\2\1\6\1\7"+
+    "\1\10\1\11\1\12\1\13\2\2\1\14\1\2\1\15"+
+    "\1\16\1\2\1\17\1\20\1\21\2\2\1\22\1\23"+
+    "\1\24\1\2\1\25\1\26\2\2\1\27\1\2\1\30"+
     "\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40"+
-    "\1\41\1\42\1\43\1\44\1\45\1\46\1\7\64\0"+
-    "\2\3\63\0\1\47\23\0\1\47\44\0\1\50\1\51"+
-    "\64\0\1\52\4\0\1\53\56\0\1\54\11\0\1\55"+
-    "\51\0\1\56\62\0\1\57\61\0\1\60\75\0\1\61"+
-    "\46\0\1\62\67\0\1\63\55\0\1\64\2\0\1\65"+
-    "\63\0\1\66\10\0\1\67\1\0\1\70\50\0\1\71"+
-    "\102\0\1\72\35\0\1\73\113\0\1\74\62\0\1\75"+
-    "\62\0\1\76\62\0\1\77\65\0\1\100\63\0\1\101"+
-    "\12\0\2\102\1\0\1\102\6\0\1\102\2\0\2\102"+
-    "\3\0\1\102\1\0\1\102\3\0\1\102\31\0\7\50"+
-    "\1\103\1\104\52\50\12\105\1\106\50\105\14\0\1\107"+
-    "\64\0\1\110\70\0\1\111\66\0\1\112\67\0\1\113"+
-    "\44\0\1\114\10\0\1\115\51\0\1\116\64\0\1\117"+
-    "\67\0\1\120\62\0\1\121\55\0\1\122\56\0\1\123"+
-    "\75\0\1\124\66\0\1\125\60\0\1\126\62\0\1\127"+
-    "\62\0\1\130\37\0\1\103\53\0\12\105\1\131\50\105"+
-    "\11\0\1\103\1\106\65\0\1\132\64\0\1\133\61\0"+
-    "\1\134\62\0\1\135\63\0\1\136\70\0\1\137\63\0"+
-    "\1\140\60\0\1\141\70\0\1\142\43\0\1\143\65\0"+
-    "\1\144\70\0\1\121\54\0\1\145\61\0\1\146\65\0"+
-    "\1\147\57\0\1\150\72\0\1\151\35\0\11\105\1\103"+
-    "\1\131\50\105\16\0\1\152\66\0\1\153\60\0\1\154"+
-    "\63\0\1\155\56\0\1\156\66\0\1\157\65\0\1\160"+
-    "\56\0\1\161\57\0\1\162\66\0\1\163\57\0\1\164"+
-    "\74\0\1\165\50\0\1\166\63\0\1\167\70\0\1\170"+
-    "\56\0\1\171\61\0\1\172\62\0\1\173\101\0\1\174"+
-    "\41\0\1\175\75\0\1\176\64\0\1\177\44\0\1\200"+
-    "\65\0\1\201\66\0\1\202\55\0\1\203\62\0\1\204"+
-    "\61\0\1\205\64\0\1\206\100\0\1\207\47\0\1\210"+
-    "\57\0\1\211\60\0\1\212\74\0\1\213\56\0\1\214"+
-    "\36\0";
+    "\1\41\1\42\1\43\1\44\1\45\1\46\1\47\1\10"+
+    "\65\0\2\3\2\0\1\50\57\0\2\51\1\52\1\0"+
+    "\1\50\22\0\1\52\45\0\1\53\1\54\65\0\1\55"+
+    "\4\0\1\56\57\0\1\57\11\0\1\60\52\0\1\61"+
+    "\63\0\1\62\62\0\1\63\76\0\1\64\47\0\1\65"+
+    "\70\0\1\66\56\0\1\67\2\0\1\70\64\0\1\71"+
+    "\10\0\1\72\1\0\1\73\51\0\1\74\103\0\1\75"+
+    "\36\0\1\76\114\0\1\77\63\0\1\100\63\0\1\101"+
+    "\63\0\1\102\66\0\1\103\64\0\1\104\12\0\2\50"+
+    "\3\0\1\105\10\0\1\105\45\0\2\51\2\0\1\50"+
+    "\57\0\2\106\1\0\1\106\1\0\1\106\5\0\1\106"+
+    "\2\0\2\106\3\0\1\106\1\0\1\106\3\0\1\106"+
+    "\31\0\10\53\1\7\1\107\52\53\13\110\1\111\50\110"+
+    "\15\0\1\112\65\0\1\113\71\0\1\114\67\0\1\115"+
+    "\70\0\1\116\45\0\1\117\10\0\1\120\52\0\1\121"+
+    "\65\0\1\122\70\0\1\123\63\0\1\124\56\0\1\125"+
+    "\57\0\1\126\76\0\1\127\67\0\1\130\61\0\1\131"+
+    "\63\0\1\132\63\0\1\133\31\0\2\134\4\0\1\135"+
+    "\33\0\1\135\30\0\1\7\53\0\13\110\1\136\50\110"+
+    "\12\0\1\7\1\111\66\0\1\137\65\0\1\140\62\0"+
+    "\1\141\63\0\1\142\64\0\1\143\71\0\1\144\64\0"+
+    "\1\145\61\0\1\146\71\0\1\147\44\0\1\150\66\0"+
+    "\1\151\71\0\1\124\55\0\1\152\62\0\1\153\66\0"+
+    "\1\154\60\0\1\155\73\0\1\156\36\0\2\134\61\0"+
+    "\12\110\1\7\1\136\50\110\17\0\1\157\67\0\1\160"+
+    "\61\0\1\161\64\0\1\162\57\0\1\163\67\0\1\164"+
+    "\66\0\1\165\57\0\1\166\60\0\1\167\67\0\1\170"+
+    "\60\0\1\171\75\0\1\172\51\0\1\173\64\0\1\174"+
+    "\71\0\1\175\57\0\1\176\62\0\1\177\63\0\1\200"+
+    "\102\0\1\201\42\0\1\202\76\0\1\203\65\0\1\204"+
+    "\45\0\1\205\66\0\1\206\67\0\1\207\56\0\1\210"+
+    "\63\0\1\211\62\0\1\212\65\0\1\213\101\0\1\214"+
+    "\50\0\1\215\60\0\1\216\61\0\1\217\75\0\1\220"+
+    "\57\0\1\221\36\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[5100];
+    int [] result = new int[5408];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -211,15 +215,15 @@ class Yylex {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\2\1\3\11\1\1\1\11\15\1\2\11"+
-    "\6\1\10\11\1\0\1\1\16\0\1\11\4\0\6\11"+
-    "\1\1\1\11\1\1\15\0\1\11\1\0\1\1\7\0"+
-    "\1\11\7\0\1\11\4\0\1\11\1\0\1\11\4\0"+
-    "\1\11\5\0\1\11\3\0\4\11\3\0\2\11\3\0"+
-    "\2\11\2\0\1\11\1\0\1\11";
+    "\1\0\1\11\2\1\4\11\1\1\1\11\15\1\2\11"+
+    "\6\1\10\11\3\0\1\1\16\0\1\11\4\0\6\11"+
+    "\1\0\2\1\15\0\1\11\1\0\1\1\4\0\1\1"+
+    "\4\0\1\11\7\0\1\11\4\0\1\11\1\0\1\11"+
+    "\4\0\1\11\5\0\1\11\3\0\4\11\3\0\2\11"+
+    "\3\0\2\11\2\0\1\11\1\0\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[140];
+    int [] result = new int[145];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -612,191 +616,195 @@ class Yylex {
           case 1: 
             { /* do nothing */
             }
-          case 48: break;
+          case 49: break;
           case 2: 
             { System.out.print("intconstant ");
             }
-          case 49: break;
+          case 50: break;
           case 3: 
             { System.out.print("period ");
             }
-          case 50: break;
+          case 51: break;
           case 4: 
             { System.out.print("minus ");
             }
-          case 51: break;
-          case 5: 
-            { System.out.print(yytext());
-            }
           case 52: break;
-          case 6: 
-            { System.out.print("div ");
-            }
-          case 53: break;
-          case 7: 
-            { System.out.print("mult ");
-            }
-          case 54: break;
-          case 8: 
-            { System.out.print("plus ");
-            }
-          case 55: break;
-          case 9: 
-            { System.out.print("mod ");
-            }
-          case 56: break;
-          case 10: 
-            { System.out.print("less ");
-            }
-          case 57: break;
-          case 11: 
-            { System.out.print("eq ");
-            }
-          case 58: break;
-          case 12: 
-            { System.out.print("greater ");
-            }
-          case 59: break;
-          case 13: 
-            { System.out.print("not ");
-            }
-          case 60: break;
-          case 14: 
-            { System.out.print("semicolon ");
-            }
-          case 61: break;
-          case 15: 
-            { System.out.print("comma ");
-            }
-          case 62: break;
-          case 16: 
-            { System.out.print("leftparen ");
-            }
-          case 63: break;
-          case 17: 
-            { System.out.print("rightparen ");
-            }
-          case 64: break;
-          case 18: 
-            { System.out.print("leftbrac ");
-            }
-          case 65: break;
-          case 19: 
-            { System.out.print("rightbrac ");
-            }
-          case 66: break;
-          case 20: 
-            { System.out.print("leftbrace ");
-            }
-          case 67: break;
-          case 21: 
-            { System.out.print("rightbrace ");
-            }
-          case 68: break;
-          case 22: 
+          case 5: 
             { System.out.print("\n");
             }
+          case 53: break;
+          case 6: 
+            { System.out.print(yytext());
+            }
+          case 54: break;
+          case 7: 
+            { System.out.print("div ");
+            }
+          case 55: break;
+          case 8: 
+            { System.out.print("mult ");
+            }
+          case 56: break;
+          case 9: 
+            { System.out.print("plus ");
+            }
+          case 57: break;
+          case 10: 
+            { System.out.print("mod ");
+            }
+          case 58: break;
+          case 11: 
+            { System.out.print("less ");
+            }
+          case 59: break;
+          case 12: 
+            { System.out.print("eq ");
+            }
+          case 60: break;
+          case 13: 
+            { System.out.print("greater ");
+            }
+          case 61: break;
+          case 14: 
+            { System.out.print("not ");
+            }
+          case 62: break;
+          case 15: 
+            { System.out.print("semicolon ");
+            }
+          case 63: break;
+          case 16: 
+            { System.out.print("comma ");
+            }
+          case 64: break;
+          case 17: 
+            { System.out.print("leftparen ");
+            }
+          case 65: break;
+          case 18: 
+            { System.out.print("rightparen ");
+            }
+          case 66: break;
+          case 19: 
+            { System.out.print("leftbrac ");
+            }
+          case 67: break;
+          case 20: 
+            { System.out.print("rightbrac ");
+            }
+          case 68: break;
+          case 21: 
+            { System.out.print("leftbrace ");
+            }
           case 69: break;
+          case 22: 
+            { System.out.print("rightbrace ");
+            }
+          case 70: break;
           case 23: 
             { System.out.print("if ");
             }
-          case 70: break;
+          case 71: break;
           case 24: 
             { System.out.print("lesseq ");
             }
-          case 71: break;
+          case 72: break;
           case 25: 
             { System.out.print("eqeq ");
             }
-          case 72: break;
+          case 73: break;
           case 26: 
             { System.out.print("greatereq ");
             }
-          case 73: break;
+          case 74: break;
           case 27: 
             { System.out.print("noteq ");
             }
-          case 74: break;
+          case 75: break;
           case 28: 
             { System.out.print("andand ");
             }
-          case 75: break;
+          case 76: break;
           case 29: 
             { System.out.print("oror ");
             }
-          case 76: break;
+          case 77: break;
           case 30: 
             { System.out.print("for ");
             }
-          case 77: break;
+          case 78: break;
           case 31: 
             { System.out.print("int ");
             }
-          case 78: break;
-          case 32: 
-            { System.out.print("else ");
-            }
           case 79: break;
-          case 33: 
-            { System.out.print("booleanconstant");
+          case 32: 
+            { System.out.print("doubleconstant ");
             }
           case 80: break;
-          case 34: 
-            { System.out.print("void ");
+          case 33: 
+            { System.out.print("else ");
             }
           case 81: break;
-          case 35: 
-            { System.out.print("break ");
+          case 34: 
+            { System.out.print("booleanconstant");
             }
           case 82: break;
-          case 36: 
-            { System.out.print("class ");
+          case 35: 
+            { System.out.print("void ");
             }
           case 83: break;
-          case 37: 
-            { System.out.print("while ");
+          case 36: 
+            { System.out.print("break ");
             }
           case 84: break;
-          case 38: 
-            { System.out.print("readln ");
+          case 37: 
+            { System.out.print("class ");
             }
           case 85: break;
-          case 39: 
-            { System.out.print("return ");
+          case 38: 
+            { System.out.print("while ");
             }
           case 86: break;
-          case 40: 
-            { System.out.print("string ");
+          case 39: 
+            { System.out.print("readln ");
             }
           case 87: break;
-          case 41: 
-            { System.out.print("double ");
+          case 40: 
+            { System.out.print("return ");
             }
           case 88: break;
-          case 42: 
-            { System.out.print("boolean ");
+          case 41: 
+            { System.out.print("string ");
             }
           case 89: break;
-          case 43: 
-            { System.out.print("extends ");
+          case 42: 
+            { System.out.print("double ");
             }
           case 90: break;
-          case 44: 
-            { System.out.print("println ");
+          case 43: 
+            { System.out.print("boolean ");
             }
           case 91: break;
-          case 45: 
-            { System.out.print("newarray ");
+          case 44: 
+            { System.out.print("extends ");
             }
           case 92: break;
-          case 46: 
-            { System.out.print("interface ");
+          case 45: 
+            { System.out.print("println ");
             }
           case 93: break;
-          case 47: 
-            { System.out.print("implements ");
+          case 46: 
+            { System.out.print("newarray ");
             }
           case 94: break;
+          case 47: 
+            { System.out.print("interface ");
+            }
+          case 95: break;
+          case 48: 
+            { System.out.print("implements ");
+            }
+          case 96: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

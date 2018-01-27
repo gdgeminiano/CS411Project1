@@ -51,6 +51,9 @@ while       {System.out.print("while ");}
 /* INTEGER CONSTANT*/
 {DecInteger}|{HexInteger} {System.out.print("intconstant ");}
 
+/* DOUBLE CONSTANT */
+{DoubleConst} {System.out.print("doubleconstant ");}
+
 /* BOOLEAN CONSTANT */
 true        {System.out.print("booleanconstant");}
 false       {System.out.print("booleanconstant");}
@@ -84,5 +87,5 @@ false       {System.out.print("booleanconstant");}
 /* COMMENTS */
 {Comment}       {System.out.print("\n");}
 
-\n { /* do nothing */}
+\n {System.out.print("\n");}
 . { /* do nothing */}
