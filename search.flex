@@ -7,7 +7,7 @@
 %standalone
 Letter = [a-zA-Z]
 Digit = [0-9]
-UnderScore = \_
+UnderScore = "_"
 
 Identifier = {Letter}({Letter}|{Digit}|{UnderScore})*
 
@@ -23,6 +23,8 @@ Character = [^\"\\\n\r]
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
 MultiLineComment = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+
+
 SingleLineComment = "//" {InputCharacter}* {LineTerminator}?
 Comment = {MultiLineComment} | {SingleLineComment}
 
@@ -47,6 +49,9 @@ return      {System.out.print("return ");}
 string      {System.out.print("string ");}
 void        {System.out.print("void ");}
 while       {System.out.print("while ");}
+
+/* IDENTIFIER */
+{Identifier} {System.out.print("id ");}
 
 /* INTEGER CONSTANT*/
 {DecInteger}|{HexInteger} {System.out.print("intconstant ");}
