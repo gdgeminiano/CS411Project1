@@ -16,4 +16,4 @@ Working:
 - [X] String Constant
 - [X] Boolean
 - [X] Operations
-- [ ] Comments
+- [X] Comments

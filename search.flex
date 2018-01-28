@@ -25,6 +25,10 @@ String = \"(([^\"]|\\\")*[^\\])?\"
 
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
+MultiLineComment = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+SingleLineComment = "//" {InputCharacter}* {LineTerminator}?
+Comment = {MultiLineComment} | {SingleLineComment}
+
 
 %%
 
@@ -91,6 +95,7 @@ false       {System.out.print("booleanconstant");}
 "}"       {System.out.print("rightbrace ");}
 
 /* COMMENTS */
+{Comment}       {System.out.print("\n");}
 
 \n {System.out.print("\n");}
 . { /* do nothing */}
