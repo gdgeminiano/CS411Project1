@@ -17,7 +17,7 @@ HexInteger = 0[xX][0-9A-Fa-f]+
 
 DoubleConst= [0-9]+\.[0-9]*([eE][\+\-]?[0-9]+)?
 
-WhiteSpace = [ \t\n]+
+WhiteSpace = [ \t]+
 
 Character = [^\"\\\n\r]
 
@@ -96,6 +96,8 @@ false       {System.out.print("booleanconstant");}
 
 /* COMMENTS */
 {Comment}       {System.out.print("\n");}
+
+{WhiteSpace}  { /* do nothing */}
 
 \n {System.out.print("\n");}
 . { /* do nothing */}
