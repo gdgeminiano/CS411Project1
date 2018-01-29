@@ -10,7 +10,7 @@ Instructions:
 Working:
 - [X] Keywords
 - [X] Identifier
-- [ ] White space
+- [X] White space
 - [X] Integer Constant
 - [X] Double Constant
 - [X] String Constant
