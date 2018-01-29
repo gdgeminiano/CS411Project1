@@ -19,7 +19,7 @@ Working:
 - [X] White space
 - [X] Integer Constant
 - [X] Double Constant
-- [X] String Constant
+- [ ] String Constant
 - [X] Boolean
 - [X] Operations
 - [X] Comments
