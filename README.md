@@ -2,7 +2,6 @@
 Implementing a lexical analyzer
 
 Given flex file: search.flex
-
       text file: TextFile.txt
  
  **IMPORTANT NOTE WHEN TESTING OUT TEXTFILE MAKE SURE TEXT FILE IS USING PROPER DOUBLE QUOTES**
