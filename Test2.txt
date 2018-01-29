@@ -1,2 +1,8 @@
 
-/****/*****/**/
+// String Constant Test /*NOT WORKING PROPERLY ACCEPTS INVALID STRINGS*/
+"abcdefghijklmnopqrstuvwxyz"
+"+ - * / % < <= > >= == != && || ! = ; , . ( ) [ ] { }"
+
+"asdadsad"
+
+"asdasd \n"
