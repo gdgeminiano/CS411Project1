@@ -3,7 +3,20 @@ import java.io.*;
 
 %%
 %standalone
+
+%init{
+createFile();
+%init}
+
 %{
+  public void createFile(){
+  try (BufferedWriter bw = new BufferedWriter(new FileWriter("OUTPUT.txt",false))) {
+    bw.write("");
+    bw.close();
+  } catch (IOException e) {
+    e.printStackTrace();
+  }
+}
   public void writeTo(String token){
     try (BufferedWriter bw = new BufferedWriter(new FileWriter("OUTPUT.txt",true))) {
 			bw.write(token);
@@ -115,8 +128,8 @@ StringChar = [^\r\n\"\\. ]
 
 <STRING> {
   /* ERRORS */
-  \\.             { throw new RuntimeException("Illegal escape sequence \""+yytext()+"\""); }
-  {EndOfLine}     { throw new RuntimeException("Unterminated string at end of line"); }
+  \\.             { System.out.println("Illegal escape sequence \""+yytext()+"\""); }
+  {EndOfLine}     { System.out.println("Unterminated string at end of line"); yybegin(YYINITIAL); }
 
   /* END OF STRING */
   \"              { yybegin(YYINITIAL); writeTo("string "); }
