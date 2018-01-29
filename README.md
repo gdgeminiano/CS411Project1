@@ -1,6 +1,12 @@
 # CS411Project1
 Implementing a lexical analyzer
 
+Given 
+- [ ] flex file: search.flex
+- [ ] text file: TextFile.txt
+ 
+ **IMPORTANT NOTE WHEN TESTING OUT TEXT FILE MAKE SURE TEXT FILE IS USING PROPER DOUBLE QUOTES** 
+ 
 Instructions:
 - [ ] Go to command prompt
 - [ ] jflex search.flex
