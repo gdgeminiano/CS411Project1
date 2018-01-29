@@ -19,13 +19,11 @@ DoubleConst= [0-9]+\.[0-9]*([eE][\+\-]?[0-9]+)?
 
 WhiteSpace = [ \t]+
 
-Character = [^\"\\\n\r]
-
 String = \"(([^\"]|\\\")*[^\\])?\"
 
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
-MultiLineComment = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+MultiLineComment = "/*" ~"*/" | "/*" [^"*/"]* "*/"
 SingleLineComment = "//" {InputCharacter}* {LineTerminator}?
 Comment = {MultiLineComment} | {SingleLineComment}
 
@@ -56,8 +54,8 @@ void        {System.out.print("void ");}
 while       {System.out.print("while ");}
 
 /* BOOLEAN CONSTANT */
-true        {System.out.print("booleanconstant");}
-false       {System.out.print("booleanconstant");}
+true        {System.out.print("booleanconstant ");}
+false       {System.out.print("booleanconstant ");}
 
 /* IDENTIFIER */
 {Identifier} {System.out.print("id ");}
