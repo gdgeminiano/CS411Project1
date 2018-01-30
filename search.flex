@@ -6,12 +6,17 @@ import java.io.*;
 %standalone
 
 %init{
-    dataTrie = new Trie();
+    Trie dataTrie = new Trie();
     createFile();
 
 %init}
 
 %{
+
+  public void printTrie()
+    {
+      dataTrie.print("OUTPUT.txt");
+    }
 
   public boolean insertData(String str)
   {
@@ -104,8 +109,10 @@ StringChar = [^\r\n\"\\. ]
                     dataTrie.insert(yytext());}
 
   /* BOOLEAN CONSTANT */
-  true            {writeTo("booleanconstant ");}
-  false           {writeTo("booleanconstant ");}
+  true            {writeTo("booleanconstant ");
+                    dataTrie.insert(yytext());}
+  false           {writeTo("booleanconstant ");
+                    dataTrie.insert(yytext());}
 
   /* IDENTIFIER */
   {Identifier}    {writeTo("id ");

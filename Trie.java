@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class Trie
@@ -91,72 +95,58 @@ public class Trie
         }
     }
 
-    public int findEmpty()
-    {
-        int ptr = -1;
-        boolean isFound = false;
-        while(!isFound)
-        {
-            if(symbol[ptr] == -1)
-            {
-                isFound = true;
+    public void print(String output) {
+        try (PrintWriter pw = new PrintWriter(
+                new BufferedWriter(new FileWriter(output, true)))) {
+            // PRINTING FORMATTED
+            pw.println();
+            int a1 = 0;
+            int s1 = 0;
+            while (a1 < 40) {
+                pw.print("        ");
+                for (int a = 0; a < 20; a++)
+                    pw.printf("%4c ", alpha[a1++]);
+                pw.println();
+                pw.print("switch: ");
+                for (int a = 0; a < 20; a++)
+                    pw.printf("%4d ", Switch[s1++]);
+                pw.println("\n");
             }
-            else
-            {
-                ptr++;
-            }
-        }
-
-        return ptr;
-    }
-
-    public void print()
-    {
-        // PRINTING FORMATTED
-        System.out.println();
-        int a1 = 0;
-        int s1 = 0;
-        while (a1 < 40) {
-            System.out.print("        ");
-            for (int a = 0; a < 20; a++)
-                System.out.printf("%4c ", alpha[a1++]);
-            System.out.println();
-            System.out.print("switch: ");
-            for (int a = 0; a < 20; a++)
-                System.out.printf("%4d ", Switch[s1++]);
-            System.out.println("\n");
-        }
-        System.out.print("        ");
-        for (int a = 40; a < alpha.length; a++)
-            System.out.printf("%4c ", alpha[a1++]);
-        System.out.println();
-        System.out.print("switch: ");
-        for (int a = 40; a < alpha.length; a++)
-            System.out.printf("%4d ", Switch[s1++]);
-        System.out.println("\n");
-        int count = 0;
-        int s2 = 0;
-        int n2 = 0;
-        while (count < symbol.length) {
-            System.out.print("        ");
-            for (int n = 0; n < 20; n++)
-                System.out.printf("%4d ", count++);
-            System.out.println();
-            System.out.print("symbol: ");
-            for (int n = 0; n < 20; n++)
-                System.out.printf("%4c ", symbol[s2++]);
-            System.out.println();
-            System.out.print("next:   ");
-            for (int n = 0; n < 20; n++) {
-                if (next[n2] != -1) {
-                    System.out.printf("%4d ", next[n2++]);
-                } else {
-                    System.out.printf("%4c ", ' ');
-                    n2++;
+            pw.print("        ");
+            for (int a = 40; a < alpha.length; a++)
+                pw.printf("%4c ", alpha[a1++]);
+            pw.println();
+            pw.print("switch: ");
+            for (int a = 40; a < alpha.length; a++)
+                pw.printf("%4d ", Switch[s1++]);
+            pw.println("\n");
+            int count = 0;
+            int s2 = 0;
+            int n2 = 0;
+            while (count < symbol.length) {
+                pw.print("        ");
+                for (int n = 0; n < 20; n++)
+                    pw.printf("%4d ", count++);
+                pw.println();
+                pw.print("symbol: ");
+                for (int n = 0; n < 20; n++)
+                    pw.printf("%4c ", symbol[s2++]);
+                pw.println();
+                pw.print("next:   ");
+                for (int n = 0; n < 20; n++) {
+                    if (next[n2] != -1) {
+                        pw.printf("%4d ", next[n2++]);
+                    } else {
+                        pw.printf("%4c ", ' ');
+                        n2++;
+                    }
                 }
+                pw.println("\n");
             }
-            System.out.println("\n");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 
 
