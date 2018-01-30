@@ -16,17 +16,9 @@ Given
  
 Instructions:
 - [ ] Go to command prompt
-- [ ] jflex search.flex
-- [ ] javac Yylex.java
-- [ ] java Yylex TextFile.txt
-
-Working:
-- [X] Keywords
-- [X] Identifier
-- [ ] White space
-- [X] Integer Constant
-- [X] Double Constant
-- [X] String Constant
-- [X] Boolean
-- [X] Operations
-- [ ] Comments
+- [ ] Navigate to directory with flex, java and text files 
+- [ ] Compile java files:
+              javac Trie.java
+              javac ToyLexScanner.java
+- [ ] Run ToyLexScanner program
+              java ToyLexerScanner TextFile.txt
