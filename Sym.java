@@ -21,7 +21,7 @@ public class Sym
     public static final int WHILE = 18;
     public static final int PLUS = 19;
     public static final int MINUS = 20;
-    public static final int TIMES = 21;
+    public static final int MULTI = 21;
     public static final int DIVIDE = 22;
     public static final int MOD = 23;
     public static final int LESS = 24;

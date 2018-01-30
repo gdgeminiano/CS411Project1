@@ -1,3 +1,4 @@
+
 import java.io.*;
 
 %%
@@ -5,7 +6,7 @@ import java.io.*;
 %standalone
 
 %init{
-    Trie dataTrie = new Trie();
+    Trie dataTrie = new Trie(500);
     createFile();
 
 %init}
@@ -17,10 +18,10 @@ import java.io.*;
       dataTrie.print("OUTPUT.txt");
     }
 
-  public boolean insertData(String str)
-  {
-      return dataTrie.insert(str);
-  }
+  public void printLexerOutput()
+    {
+        writeTo(lexerOutput);
+    }
 
   public void createFile(){
     try (BufferedWriter bw = new BufferedWriter(new FileWriter("OUTPUT.txt",false))) {
@@ -71,118 +72,153 @@ StringChar = [^\r\n\"\\. ]
 
   /* KEYWORDS */
   boolean         {writeTo("boolean ");
-                   dataTrie.insert(yytext());}
+                   dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.BOOL;}
   break           {writeTo("break ");
-                   dataTrie.insert(yytext());}
+                   dataTrie.insert(yytext());
+                   lexerOutput += " " + Sym.BREAK;}
   class           {writeTo("class ");
-                   dataTrie.insert(yytext());}
+                   dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.CLASS;}
   double          {writeTo("double ");
-                   dataTrie.insert(yytext());}
+                   dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.DOUBLE;}
   else            {writeTo("else ");
-                   dataTrie.insert(yytext());}
+                   dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.ELSE;}
   extends         {writeTo("extends ");
-                   dataTrie.insert(yytext());}
+                   dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.EXTENDS;}
   for             {writeTo("for ");
-                   dataTrie.insert(yytext());}
+                   dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.FOR;}
   if              {writeTo("if ");
-                   dataTrie.insert(yytext());}
+                   dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.IF;}
   implements      {writeTo("implements ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.IMPLEMENTS;}
   int             {writeTo("int ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                     lexerOutput += " " + Sym.INT;}
   interface       {writeTo("interface ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                     lexerOutput += " " + Sym.INTERFACE;}
   newarray        {writeTo("newarray ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                     lexerOutput += " " + Sym.NEWARRAY;}
   println         {writeTo("println ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.PRINTLN;}
   readln          {writeTo("readln ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.READLN;}
   return          {writeTo("return ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.RETURN;}
   string          {writeTo("string ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.STRING;}
   void            {writeTo("void ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.VOID;}
   while           {writeTo("while ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.WHILE;}
 
   /* BOOLEAN CONSTANT */
   true            {writeTo("booleanconstant ");
-                    dataTrie.insert(yytext());}
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.BOOL_CONST;}
   false           {writeTo("booleanconstant ");
-                    dataTrie.insert(yytext());}
-
-  /* Errors for Illegal Char */
-  "~"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
-  "@"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
-  "#"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
-  "$"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
-  "^"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
-  "|"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
-  "?"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
-  ":"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
-  "'"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.BOOL_CONST;}
 
   /* IDENTIFIER */
   {Identifier}    {writeTo("id ");
-                    dataTrie.insert(yytext());}
-  /* ILLEGAL IDENTIFIER */
-  {UnderScore}({Letter}|{Digit}|{UnderScore})+  { throw new RuntimeException("Illegal identifier\""+yytext()+"\""); }
+                    dataTrie.insert(yytext());
+                    lexerOutput += " " + Sym.ID;}
 
   /* INTEGER CONSTANT*/
-  {Integer}       {writeTo("intconstant ");}
+  {Integer}       {writeTo("intconstant ");
+                    lexerOutput += " " + Sym.INT_CONST;}
 
   /* DOUBLE CONSTANT */
-  {DoubleConst}   {writeTo("doubleconstant ");}
+  {DoubleConst}   {writeTo("doubleconstant ");
+                    lexerOutput += " " + Sym.DOUBLE_CONST;}
 
   /* OPERATORS and PUNCTUATIONS*/
-  "+"             {writeTo("plus ");}
-  "-"             {writeTo("minus ");}
-  "*"             {writeTo("mult ");}
-  "/"             {writeTo("div ");}
-  "%"             {writeTo("mod ");}
-  "<"             {writeTo("less ");}
-  "<="            {writeTo("lesseq ");}
-  ">"             {writeTo("greater ");}
-  ">="            {writeTo("greatereq ");}
-  "=="            {writeTo("eqeq ");}
-  "!="            {writeTo("noteq ");}
-  "&&"            {writeTo("andand ");}
-  "||"            {writeTo("oror ");}
-  "!"             {writeTo("not ");}
-  "="             {writeTo("eq ");}
-  ";"             {writeTo("semicolon ");}
-  ","             {writeTo("comma ");}
-  "."             {writeTo("period ");}
-  "("             {writeTo("leftparen ");}
-  ")"             {writeTo("rightparen ");}
-  "["             {writeTo("leftbrac ");}
-  "]"             {writeTo("rightbrac ");}
-  "{"             {writeTo("leftbrace ");}
-  "}"             {writeTo("rightbrace ");}
+  "+"             {writeTo("plus ");
+                    lexerOutput += " " + Sym.PLUS;}
+  "-"             {writeTo("minus ");
+                    lexerOutput += " " + Sym.MINUS;}
+  "*"             {writeTo("mult ");
+                    lexerOutput += " " + Sym.MULTI;}
+  "/"             {writeTo("div ");
+                    lexerOutput += " " + Sym.DIVIDE;}
+  "%"             {writeTo("mod ");
+                    lexerOutput += " " + Sym.MOD;}
+  "<"             {writeTo("less ");
+                    lexerOutput += " " + Sym.LESS;}
+  "<="            {writeTo("lesseq ");
+                    lexerOutput += " " + Sym.LESS_EQ;}
+  ">"             {writeTo("greater ");
+                    lexerOutput += " " + Sym.GTR;}
+  ">="            {writeTo("greatereq ");
+                    lexerOutput += " " + Sym.GTR_EQ;}
+  "=="            {writeTo("eqeq ");
+                    lexerOutput += " " + Sym.EQ;}
+  "!="            {writeTo("noteq ");
+                    lexerOutput += " " + Sym.NOT_EQ;}
+  "&&"            {writeTo("andand ");
+                    lexerOutput += " " + Sym.AND;}
+  "||"            {writeTo("oror ");
+                    lexerOutput += " " + Sym.OR;}
+  "!"             {writeTo("not ");
+                    lexerOutput += " " + Sym.NOT;}
+  "="             {writeTo("eq ");
+                    lexerOutput += " " + Sym.ASSIGN;}
+  ";"             {writeTo("semicolon ");
+                    lexerOutput += " " + Sym.SEMI;}
+  ","             {writeTo("comma ");
+                    lexerOutput += " " + Sym.COMMA;}
+  "."             {writeTo("period ");
+                    lexerOutput += " " + Sym.PERIOD;}
+  "("             {writeTo("leftparen ");
+                    lexerOutput += " " + Sym.LEFT_PAREN;}
+  ")"             {writeTo("rightparen ");
+                    lexerOutput += " " + Sym.RIGHT_PAREN;}
+  "["             {writeTo("leftbrac ");
+                    lexerOutput += " " + Sym.LEFT_BRKT;}
+  "]"             {writeTo("rightbrac ");
+                    lexerOutput += " " + Sym.RT_BRKT;}
+  "{"             {writeTo("leftbrace ");
+                    lexerOutput += " " + Sym.L_BRACE;}
+  "}"             {writeTo("rightbrace ");
+                    lexerOutput += " " + Sym.R_BRACE;}
 
   /* STRING CONSTANT */
   \"              {yybegin(STRING);}
 
   /* COMMENTS */
-  {Comment}       {writeTo("\r\n");}
+  {Comment}       {writeTo("\n");}
 
   {WhiteSpace}    { /* do nothing */}
 
-  \n              {writeTo("\r\n");}
+  \n              {writeTo("\n");}
   .               { /* do nothing */}
 }
 
 <STRING> {
   /* ERRORS */
-  \\.             { throw new RuntimeException("Illegal new line \""+yytext()+"\" in string."); }
-  {EndOfLine}     {throw new RuntimeException("Unterminated string at end of line"); }
+  \\.             { System.out.println("Illegal escape sequence \""+yytext()+"\""); }
+  {EndOfLine}     { System.out.println("Unterminated string at end of line"); yybegin(YYINITIAL); }
 
   /* END OF STRING */
-  \"              { yybegin(YYINITIAL); writeTo("string "); }
+  \"              { yybegin(YYINITIAL); writeTo("string ");
+                    lexerOutput += " " + Sym.STRING_CONST;}
 
-  /* STRING CHARACRERS */
+  /* STRING CHARACTERS */
   {StringChar}+   { }
 
   /* escape sequences */
