@@ -1,4 +1,3 @@
-
 import java.io.*;
 
 %%
@@ -128,6 +127,8 @@ StringChar = [^\r\n\"\\. ]
   /* IDENTIFIER */
   {Identifier}    {writeTo("id ");
                     dataTrie.insert(yytext());}
+  /* ILLEGAL IDENTIFIER */
+  {UnderScore}({Letter}|{Digit}|{UnderScore})+  { throw new RuntimeException("Illegal identifier\""+yytext()+"\""); }
 
   /* INTEGER CONSTANT*/
   {Integer}       {writeTo("intconstant ");}
@@ -135,7 +136,6 @@ StringChar = [^\r\n\"\\. ]
   /* DOUBLE CONSTANT */
   {DoubleConst}   {writeTo("doubleconstant ");}
 
-  {UnderScore}({Letter}|{Digit}|{UnderScore})+  { throw new RuntimeException("Illegal identifier\""+yytext()+"\""); }
   /* OPERATORS and PUNCTUATIONS*/
   "+"             {writeTo("plus ");}
   "-"             {writeTo("minus ");}
@@ -166,11 +166,11 @@ StringChar = [^\r\n\"\\. ]
   \"              {yybegin(STRING);}
 
   /* COMMENTS */
-  {Comment}       {writeTo("\n");}
+  {Comment}       {writeTo("\r\n");}
 
   {WhiteSpace}    { /* do nothing */}
 
-  \n              {writeTo("\n");}
+  \n              {writeTo("\r\n");}
   .               { /* do nothing */}
 }
 

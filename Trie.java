@@ -73,7 +73,6 @@ public class Trie
                 else
                 {
                     next[ptr] = nextOpen;
-                    System.out.println(toAdd.substring(nextSymbol));
                     create(toAdd.substring(nextSymbol));
                     exit = true;
                 }
@@ -148,4 +147,6 @@ public class Trie
         }
 
     }
+
+
 }
