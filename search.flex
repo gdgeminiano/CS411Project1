@@ -1,10 +1,41 @@
-/*
-* Search through source flagging any
-* occurrances of pattern (a|b)*abb
-* found.
-*/
+
+import java.io.*;
+
 %%
+%class ToyLexScanner
 %standalone
+
+%init{
+    Trie dataTrie = new Trie();
+    createFile();
+
+%init}
+
+%{
+
+  public boolean insertData(String str)
+  {
+      dataTrie.insert(str);
+  }
+
+  public void createFile(){
+    try (BufferedWriter bw = new BufferedWriter(new FileWriter("OUTPUT.txt",false))) {
+    bw.write("");
+    bw.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+        }
+  }
+
+  public void writeTo(String token){
+    try (BufferedWriter bw = new BufferedWriter(new FileWriter("OUTPUT.txt",true))) {
+			bw.write(token);
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+  }
+%}
 
 Letter = [a-zA-Z]
 Digit = [0-9]
@@ -15,82 +46,134 @@ Identifier = {Letter}({Letter}|{Digit}|{UnderScore})*
 DecInteger= 0 | [1-9][0-9]*
 HexInteger = 0[xX][0-9A-Fa-f]+
 
+Integer = {DecInteger}|{HexInteger}
+
 DoubleConst= [0-9]+\.[0-9]*([eE][\+\-]?[0-9]+)?
 
-WhiteSpace = [ \t\n]+
+WhiteSpace = [ \t]+
 
-Character = [^\"\\\n\r]
+EndOfLine = \r|\n|\r\n
+CommentChar = [^\r\n]
+MultiLineComment = "/*" ~"*/" | "/*" [^"*/"]* "*/"
+SingleLineComment = "//" {CommentChar}* {EndOfLine}?
+Comment = {MultiLineComment} | {SingleLineComment}
 
-String = \"(([^\"]|\\\")*[^\\])?\"
+StringChar = [^\r\n\"\\. ]
 
-LineTerminator = \r|\n|\r\n
-InputCharacter = [^\r\n]
-
+%state STRING
 %%
 
-/* STRING */
-{String} {System.out.print("string ");}
+<YYINITIAL> {
 
-/* KEYWORDS */
-boolean     {System.out.print("boolean ");}
-break       {System.out.print("break ");}
-class       {System.out.print("class ");}
-double      {System.out.print("double ");}
-else        {System.out.print("else ");}
-extends     {System.out.print("extends ");}
-for         {System.out.print("for ");}
-if          {System.out.print("if ");}
-implements  {System.out.print("implements ");}
-int         {System.out.print("int ");}
-interface   {System.out.print("interface ");}
-newarray    {System.out.print("newarray ");}
-println     {System.out.print("println ");}
-readln      {System.out.print("readln ");}
-return      {System.out.print("return ");}
-string      {System.out.print("string ");}
-void        {System.out.print("void ");}
-while       {System.out.print("while ");}
+  /* KEYWORDS */
+  boolean         {writeTo("boolean ");
+                   Trie.insert(yytext());}
+  break           {writeTo("break ");
+                   Trie.insert(yytext());}
+  class           {writeTo("class ");
+                   Trie.insert(yytext());}
+  double          {writeTo("double ");
+                   Trie.insert(yytext());}
+  else            {writeTo("else ");
+                   Trie.insert(yytext());}
+  extends         {writeTo("extends ");
+                   Trie.insert(yytext());}
+  for             {writeTo("for ");
+                   Trie.insert(yytext());}
+  if              {writeTo("if ");
+                   Trie.insert(yytext());}
+  implements      {writeTo("implements ");
+                    Trie.insert(yytext());}
+  int             {writeTo("int ");
+                    Trie.insert(yytext());}
+  interface       {writeTo("interface ");
+                    Trie.insert(yytext());}
+  newarray        {writeTo("newarray ");
+                    Trie.insert(yytext());}
+  println         {writeTo("println ");
+                    Trie.insert(yytext());}
+  readln          {writeTo("readln ");
+                    Trie.insert(yytext());}
+  return          {writeTo("return ");
+                    Trie.insert(yytext());}
+  string          {writeTo("string ");
+                    Trie.insert(yytext());}
+  void            {writeTo("void ");
+                    Trie.insert(yytext());}
+  while           {writeTo("while ");
+                    Trie.insert(yytext());}
 
-/* BOOLEAN CONSTANT */
-true        {System.out.print("booleanconstant");}
-false       {System.out.print("booleanconstant");}
+  /* BOOLEAN CONSTANT */
+  true            {writeTo("booleanconstant ");}
+  false           {writeTo("booleanconstant ");}
 
-/* IDENTIFIER */
-{Identifier} {System.out.print("id ");}
+  /* IDENTIFIER */
+  {Identifier}    {writeTo("id ");
+                    Trie.insert(yytext());}
 
-/* INTEGER CONSTANT*/
-{DecInteger}|{HexInteger} {System.out.print("intconstant ");}
+  /* INTEGER CONSTANT*/
+  {Integer}       {writeTo("intconstant ");}
 
-/* DOUBLE CONSTANT */
-{DoubleConst} {System.out.print("doubleconstant ");}
+  /* DOUBLE CONSTANT */
+  {DoubleConst}   {writeTo("doubleconstant ");}
 
-/* OPERATORS and PUNCTUATIONS*/
-"+"       {System.out.print("plus ");}
-"-"       {System.out.print("minus ");}
-"*"       {System.out.print("mult ");}
-"/"       {System.out.print("div ");}
-"%"       {System.out.print("mod ");}
-"<"       {System.out.print("less ");}
-"<="      {System.out.print("lesseq ");}
-">"       {System.out.print("greater ");}
-">="      {System.out.print("greatereq ");}
-"=="      {System.out.print("eqeq ");}
-"!="      {System.out.print("noteq ");}
-"&&"      {System.out.print("andand ");}
-"||"      {System.out.print("oror ");}
-"!"       {System.out.print("not ");}
-"="       {System.out.print("eq ");}
-";"       {System.out.print("semicolon ");}
-","       {System.out.print("comma ");}
-"."       {System.out.print("period ");}
-"("       {System.out.print("leftparen ");}
-")"       {System.out.print("rightparen ");}
-"["       {System.out.print("leftbrac ");}
-"]"       {System.out.print("rightbrac ");}
-"{"       {System.out.print("leftbrace ");}
-"}"       {System.out.print("rightbrace ");}
+  /* OPERATORS and PUNCTUATIONS*/
+  "+"             {writeTo("plus ");}
+  "-"             {writeTo("minus ");}
+  "*"             {writeTo("mult ");}
+  "/"             {writeTo("div ");}
+  "%"             {writeTo("mod ");}
+  "<"             {writeTo("less ");}
+  "<="            {writeTo("lesseq ");}
+  ">"             {writeTo("greater ");}
+  ">="            {writeTo("greatereq ");}
+  "=="            {writeTo("eqeq ");}
+  "!="            {writeTo("noteq ");}
+  "&&"            {writeTo("andand ");}
+  "||"            {writeTo("oror ");}
+  "!"             {writeTo("not ");}
+  "="             {writeTo("eq ");}
+  ";"             {writeTo("semicolon ");}
+  ","             {writeTo("comma ");}
+  "."             {writeTo("period ");}
+  "("             {writeTo("leftparen ");}
+  ")"             {writeTo("rightparen ");}
+  "["             {writeTo("leftbrac ");}
+  "]"             {writeTo("rightbrac ");}
+  "{"             {writeTo("leftbrace ");}
+  "}"             {writeTo("rightbrace ");}
 
-/* COMMENTS */
+  /* STRING CONSTANT */
+  \"              {yybegin(STRING);}
 
-\n {System.out.print("\n");}
-. { /* do nothing */}
+  /* COMMENTS */
+  {Comment}       {writeTo("\n");}
+
+  {WhiteSpace}    { /* do nothing */}
+
+  \n              {writeTo("\n");}
+  .               { /* do nothing */}
+}
+
+<STRING> {
+  /* ERRORS */
+  \\.             { System.out.println("Illegal escape sequence \""+yytext()+"\""); }
+  {EndOfLine}     { System.out.println("Unterminated string at end of line"); yybegin(YYINITIAL); }
+
+  /* END OF STRING */
+  \"              { yybegin(YYINITIAL); writeTo("string "); }
+
+  /* STRING CHARACRERS */
+  {StringChar}+   { }
+
+  /* escape sequences */
+  "\\b"           { }
+  "\\t"           { }
+  "\\n"           { }
+  "\\f"           { }
+  "\\r"           { }
+  "\\\""          { }
+  "\\'"           { }
+  "\\\\"          { }
+
+}
