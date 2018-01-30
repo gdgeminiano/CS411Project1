@@ -1,0 +1,97 @@
+//Keywords
+boolean break class double else extends false for
+if implements int interface newarray println readln
+return string true void while
+
+
+//Identifier Test
+BOOLEAN BREAK CLASS DOUBLE ELSE EXTENDS FALSE FOR
+IF IMPLEMENTS INT INTERFACE NEWARRAY PRINTLN READLN
+RETURN STRING TRUE VOID WHILE _d1 d_34 ~
+
+Boolean Break Class Double Else Extends False For
+If Implements Int Interface Newarray Println Readln
+Return String True Void While
+
+// White Space Test
+ifintvoid
+if(23void
+
+// Integer Constant Test
+0 1 2 3 4 5 6 7 8 9 10 100 001
+1a2b3c4d5e
+0x
+0X
+0x0
+0X12aE
+0x123ZZZ
+
+// Double Constant Test
+0.12
+12.
+12.2E+2
+0000000012.
+0000000012.2E00000000001
+
+.12
+.12E+2
+1.2E
+
+// String Constant Test /*NOT WORKING PROPERLY ACCEPTS INVALID STRINGS*/
+"abcdefghijklmnopqrstuvwxyz"
+"+ - * / % < <= > >= == != && || ! = ; , . ( ) [ ] { }"
+"asdasdasdasd \n"
+"asdadsad""
+"asdsad
+asdada"
+
+// Boolean Constant Test
+true false
+True False
+TRUE FALSE
+
+// Operators Test
++
+-
+*
+/
+%
+<
+<=
+>
+>=
+==
+!=
+&&
+||
+!
+=
+;
+,
+.
+(
+)
+[
+]
+{
+}
+
+// Comments Test
+// Single-Line Comment
+/*Multi
+Line
+Comment*/
+/*********/
+/*******
+*******/
+/*****
+1234abcd+-*%()[]{}
+*****/
+/*****
+************
+*****/
+
+// Single-Line
+Comment
+/******/*/
+/****/*****/**/

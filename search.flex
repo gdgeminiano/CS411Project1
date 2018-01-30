@@ -6,7 +6,7 @@ import java.io.*;
 %standalone
 
 %init{
-    Trie dataTrie = new Trie();
+    dataTrie = new Trie();
     createFile();
 
 %init}
@@ -15,7 +15,7 @@ import java.io.*;
 
   public boolean insertData(String str)
   {
-      dataTrie.insert(str);
+      return dataTrie.insert(str);
   }
 
   public void createFile(){
@@ -67,41 +67,41 @@ StringChar = [^\r\n\"\\. ]
 
   /* KEYWORDS */
   boolean         {writeTo("boolean ");
-                   Trie.insert(yytext());}
+                   dataTrie.insert(yytext());}
   break           {writeTo("break ");
-                   Trie.insert(yytext());}
+                   dataTrie.insert(yytext());}
   class           {writeTo("class ");
-                   Trie.insert(yytext());}
+                   dataTrie.insert(yytext());}
   double          {writeTo("double ");
-                   Trie.insert(yytext());}
+                   dataTrie.insert(yytext());}
   else            {writeTo("else ");
-                   Trie.insert(yytext());}
+                   dataTrie.insert(yytext());}
   extends         {writeTo("extends ");
-                   Trie.insert(yytext());}
+                   dataTrie.insert(yytext());}
   for             {writeTo("for ");
-                   Trie.insert(yytext());}
+                   dataTrie.insert(yytext());}
   if              {writeTo("if ");
-                   Trie.insert(yytext());}
+                   dataTrie.insert(yytext());}
   implements      {writeTo("implements ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
   int             {writeTo("int ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
   interface       {writeTo("interface ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
   newarray        {writeTo("newarray ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
   println         {writeTo("println ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
   readln          {writeTo("readln ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
   return          {writeTo("return ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
   string          {writeTo("string ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
   void            {writeTo("void ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
   while           {writeTo("while ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
 
   /* BOOLEAN CONSTANT */
   true            {writeTo("booleanconstant ");}
@@ -109,7 +109,7 @@ StringChar = [^\r\n\"\\. ]
 
   /* IDENTIFIER */
   {Identifier}    {writeTo("id ");
-                    Trie.insert(yytext());}
+                    dataTrie.insert(yytext());}
 
   /* INTEGER CONSTANT*/
   {Integer}       {writeTo("intconstant ");}
