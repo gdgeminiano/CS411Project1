@@ -12,16 +12,19 @@ import java.io.*;
 
 %{
 
+  // Print trie table
   public void printTrie()
     {
       dataTrie.print("OUTPUT.txt");
     }
 
+  // Insert token/string into trie table
   public boolean insertData(String str)
   {
       return dataTrie.insert(str);
   }
 
+  // Overwrite file OUTPUT.txt
   public void createFile(){
     try (BufferedWriter bw = new BufferedWriter(new FileWriter("OUTPUT.txt",false))) {
     bw.write("");
@@ -31,6 +34,7 @@ import java.io.*;
         }
   }
 
+  //Append to file OUTPUT.txt
   public void writeTo(String token){
     try (BufferedWriter bw = new BufferedWriter(new FileWriter("OUTPUT.txt",true))) {
 			bw.write(token);
@@ -45,23 +49,44 @@ Letter = [a-zA-Z]
 Digit = [0-9]
 UnderScore = "_"
 
+// ID = a Letter followed by a sequene of 0 or more Letters, Digits, or Underscores,
 Identifier = {Letter}({Letter}|{Digit}|{UnderScore})*
 
+// Decimal = 0 or [1-9] followed by a sequnce zero or more digits
 DecInteger= 0 | [1-9][0-9]*
+
+// Hex = 0x or 0X followed by 1 or more digits or the letters a-f or A-F
 HexInteger = 0[xX][0-9A-Fa-f]+
 
+// Integer can be in decimal or hexadecimal
 Integer = {DecInteger}|{HexInteger}
 
+/*Double = at least 1 digit ([0-9]+) followed by a period (\.)
+ followed by zero or more digits ([0-9]*). The exponent is optional (?).
+ Sign of exponent is optional ([\+\-]?). Exponent can be upper or lower
+ case ([eE]). One or more digits must follow exponent ([0-9]+)
+ */
 DoubleConst= [0-9]+\.[0-9]*([eE][\+\-]?[0-9]+)?
 
+// White space can be blank or tabs
 WhiteSpace = [ \t]+
 
+// White space can also be new line/end of line
 EndOfLine = \r|\n|\r\n
+
+// Single Line comment cannt include return or newline inside ([^\r\n])
 CommentChar = [^\r\n]
-MultiLineComment = "/*" ~"*/" | "/*" [^"*/"]* "*/"
+// SingleLineComment = // followed by valid charcter and stops when there an end of line char
 SingleLineComment = "//" {CommentChar}* {EndOfLine}?
+
+// MultLineComment = /* followed by anything until (~) you reach */  OR
+// /* with anything but */ in the middle and ends with */ (no nesting)
+MultiLineComment = "/*" ~"*/" | "/*" [^"*/"]* "*/"
+
+// Comment is either single line or multi line
 Comment = {MultiLineComment} | {SingleLineComment}
 
+// String cannot include a new line (\r\n) or double qoute (")
 StringChar = [^\r\n\"\\. ]
 
 %state STRING
@@ -163,13 +188,13 @@ StringChar = [^\r\n\"\\. ]
   "}"             {writeTo("rightbrace ");}
 
   /* STRING CONSTANT */
+  // Begin checking string by going to state STRING
   \"              {yybegin(STRING);}
 
   /* COMMENTS */
   {Comment}       {writeTo("\r\n");}
 
   {WhiteSpace}    { /* do nothing */}
-
   \n              {writeTo("\r\n");}
   .               { /* do nothing */}
 }
@@ -180,6 +205,7 @@ StringChar = [^\r\n\"\\. ]
   {EndOfLine}     {throw new RuntimeException("Unterminated string at end of line"); }
 
   /* END OF STRING */
+  // Go back to inital state and read as normal
   \"              { yybegin(YYINITIAL); writeTo("string "); }
 
   /* STRING CHARACRERS */
@@ -194,5 +220,4 @@ StringChar = [^\r\n\"\\. ]
   "\\\""          { }
   "\\'"           { }
   "\\\\"          { }
-
 }
