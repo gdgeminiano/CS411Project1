@@ -403,7 +403,7 @@ class ToyLexScanner {
    * @param   in  the java.io.Reader to read input from.
    */
   ToyLexScanner(java.io.Reader in) {
-    dataTrie = new Trie();
+    dataTrie = new Trie(500);
     createFile();
 
     this.zzReader = in;
