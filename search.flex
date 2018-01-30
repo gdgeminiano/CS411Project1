@@ -114,6 +114,17 @@ StringChar = [^\r\n\"\\. ]
   false           {writeTo("booleanconstant ");
                     dataTrie.insert(yytext());}
 
+  /* Errors for Illegal Char */
+  "~"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "@"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "#"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "$"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "^"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "|"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "?"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  ":"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "'"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+
   /* IDENTIFIER */
   {Identifier}    {writeTo("id ");
                     dataTrie.insert(yytext());}
@@ -124,6 +135,7 @@ StringChar = [^\r\n\"\\. ]
   /* DOUBLE CONSTANT */
   {DoubleConst}   {writeTo("doubleconstant ");}
 
+  {UnderScore}({Letter}|{Digit}|{UnderScore})+  { throw new RuntimeException("Illegal identifier\""+yytext()+"\""); }
   /* OPERATORS and PUNCTUATIONS*/
   "+"             {writeTo("plus ");}
   "-"             {writeTo("minus ");}
@@ -164,8 +176,8 @@ StringChar = [^\r\n\"\\. ]
 
 <STRING> {
   /* ERRORS */
-  \\.             { System.out.println("Illegal escape sequence \""+yytext()+"\""); }
-  {EndOfLine}     { System.out.println("Unterminated string at end of line"); yybegin(YYINITIAL); }
+  \\.             { throw new RuntimeException("Illegal new line \""+yytext()+"\" in string."); }
+  {EndOfLine}     {throw new RuntimeException("Unterminated string at end of line"); }
 
   /* END OF STRING */
   \"              { yybegin(YYINITIAL); writeTo("string "); }

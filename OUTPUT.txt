@@ -1,0 +1,27 @@
+int id leftparen int id rightparen leftbrace 
+
+if leftparen id greater intconstant rightparen return id mult id leftparen id minus intconstant rightparen semicolon 
+else return intconstant semicolon 
+rightbrace 
+void id leftparen rightparen leftbrace 
+
+
+int id semicolon 
+int id semicolon 
+println leftparen string comma id leftparen intconstant rightparen comma string rightparen semicolon 
+id eq intconstant semicolon id eq intconstant semicolon 
+for leftparen semicolon id lesseq intconstant semicolon rightparen leftbrace id eq id mult id semicolon id eq id plus intconstant semicolon rightbrace 
+println leftparen string comma id rightparen semicolon 
+rightbrace 
+class id leftbrace 
+int id semicolon 
+double id semicolon 
+boolean id semicolon 
+string id semicolon 
+int leftbrac rightbrac id semicolon 
+id eq booleanconstant semicolon 
+id eq intconstant semicolon id eq intconstant id plus intconstant semicolon 
+id eq string semicolon 
+while leftparen id eq leftparen id div intconstant rightparen less intconstant rightparen println leftparen id comma string rightparen semicolon 
+id eq newarray leftparen intconstant comma int rightparen semicolon 
+rightbrace 

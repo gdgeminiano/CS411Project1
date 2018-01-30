@@ -7,7 +7,7 @@ return string true void while
 //Identifier Test
 BOOLEAN BREAK CLASS DOUBLE ELSE EXTENDS FALSE FOR
 IF IMPLEMENTS INT INTERFACE NEWARRAY PRINTLN READLN
-RETURN STRING TRUE VOID WHILE _d1 d_34 ~
+RETURN STRING TRUE VOID WHILE
 
 Boolean Break Class Double Else Extends False For
 If Implements Int Interface Newarray Println Readln
@@ -40,10 +40,10 @@ if(23void
 // String Constant Test /*NOT WORKING PROPERLY ACCEPTS INVALID STRINGS*/
 "abcdefghijklmnopqrstuvwxyz"
 "+ - * / % < <= > >= == != && || ! = ; , . ( ) [ ] { }"
-"asdasdasdasd \n"
-"asdadsad""
-"asdsad
-asdada"
+"asdasdasdasd"
+//"asdadsad""
+//"asdsad
+//asdada"
 
 // Boolean Constant Test
 true false

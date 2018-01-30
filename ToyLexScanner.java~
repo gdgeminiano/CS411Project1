@@ -820,7 +820,7 @@ class ToyLexScanner {
             }
           case 82: break;
           case 27:
-            { throw new RuntimeException("Unterminated string at end of line");
+            { System.out.println("Unterminated string at end of line"); yybegin(YYINITIAL);
             }
           case 83: break;
           case 28:
@@ -865,7 +865,7 @@ class ToyLexScanner {
             }
           case 93: break;
           case 38:
-            { throw new RuntimeException("Illegal new line \""+yytext()+"\" in string.");
+            { System.out.println("Illegal escape sequence \""+yytext()+"\"");
             }
           case 94: break;
           case 39:
