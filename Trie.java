@@ -95,7 +95,6 @@ public class Trie
                 else// if the next does not have a reference, create a reference and add the rest of the symbols
                 {   // to the next open position in the symbol table.
                     next[ptr] = nextOpen;
-                    System.out.println(toAdd.substring(nextSymbol));
                     create(toAdd.substring(nextSymbol));
                     exit = true;
                 }

@@ -1,4 +1,7 @@
-
+/*
+* CS 411 Project 1 Lexical Analyzer
+* Name: Gerianna Geminiano, Andrew Quach
+*/
 import java.io.*;
 
 %%
@@ -159,10 +162,24 @@ StringChar = [^\r\n\"\\. ]
                     dataTrie.insert(yytext());
                     lexerOutput += " " + Sym.BOOL_CONST;}
 
+  /* Errors for Illegal Char */
+  "~"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "@"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "#"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "$"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "^"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "|"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "?"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  ":"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+  "'"  { throw new RuntimeException("Illegal character \""+yytext()+"\""); }
+
   /* IDENTIFIER */
   {Identifier}    {writeTo("id ");
                     dataTrie.insert(yytext());
                     lexerOutput += " " + Sym.ID;}
+
+  /* ILLEGAL IDENTIFIER */
+  {UnderScore}({Letter}|{Digit}|{UnderScore})+  { throw new RuntimeException("Illegal identifier\""+yytext()+"\""); }
 
   /* INTEGER CONSTANT*/
   {Integer}       {writeTo("intconstant ");
@@ -238,14 +255,13 @@ StringChar = [^\r\n\"\\. ]
 
 <STRING> {
   /* ERRORS */
-  \\.             { System.out.println("Illegal escape sequence \""+yytext()+"\""); }
-  {EndOfLine}     { System.out.println("Unterminated string at end of line"); yybegin(YYINITIAL); }
+  \\.             { throw new RuntimeException("Illegal new line \""+yytext()+"\" in string."); }
+  {EndOfLine}     {throw new RuntimeException("Unterminated string at end of line"); }
 
   /* END OF STRING */
   // Go back to inital state and read as normal
   \"              { yybegin(YYINITIAL); writeTo("string ");
                     lexerOutput += " " + Sym.STRING_CONST;}
-
 
   /* STRING CHARACTERS */
   {StringChar}+   { }

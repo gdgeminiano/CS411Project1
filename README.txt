@@ -1,9 +1,9 @@
 Class: CS411
 Assignment: Project1
 Names: Gerianna Geminiano
-        Andrew Quach
+       Andrew Quach
 Program: Implementing a lexical analyzer
-Software Used: Jflex
+Software Used: JFlex
 
 Given:
 - flex file: search.flex
@@ -18,7 +18,7 @@ Instructions:
 - Go to command prompt
 - Navigate to directory with flex, java and text files
 - Compile java files:
-
+		javac Sym.java
 		javac Trie.java
 		javac ToyLexScanner.java
 
@@ -29,8 +29,8 @@ or
 		java ToyLexerScanner LexicalRules.txt
 
 - Output will be written to OUTPUT.txt
-This file will include the list of tokens and the trie table
+This file will include the list of tokens, list of tokens as numbers, and the trie table
 - Each time you test out a new text file, OUTPUT.txt is overwritten with
  the new outputs.
- 
+
 **IMPORTANT NOTE WHEN TESTING OUT TEXTFILE MAKE SURE TEXT FILE IS USING PROPER DOUBLE QUOTES**
