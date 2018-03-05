@@ -34,3 +34,6 @@ This file will include the list of tokens, list of tokens as numbers, and the tr
  the new outputs.
 
 **IMPORTANT NOTE WHEN TESTING OUT TEXTFILE MAKE SURE TEXT FILE IS USING PROPER DOUBLE QUOTES**
+
+To Run Parser:
+cmd : java -jar java-cup-11b.jar <File Name Here>.cup
